@@ -1,5 +1,6 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { ProductDB } from './products';
+import { ProductDB } from './products'; 
+import { DemoDB } from './products'; 
 import { MailDB } from './mails';
 import { CountryDB } from './countries';
 import { ChatDB } from './chat-db';
@@ -9,7 +10,8 @@ import { UserDB } from './users';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     return {
-      'products': ProductDB.products,
+      'test': ProductDB.test, 
+      'demo': DemoDB.demo, 
       'invoices': InvoiceDB.invoices,
       'mails': MailDB.messages,
       'countries': CountryDB.countries,

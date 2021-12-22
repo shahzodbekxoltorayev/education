@@ -12,7 +12,7 @@ import { debounceTime } from 'rxjs/operators';
  
 export class TeachersComponent implements OnInit{
   searchControl: FormControl = new FormControl();
-  products;
+  demo;
   filteredProducts;
 
   constructor(
@@ -20,9 +20,9 @@ export class TeachersComponent implements OnInit{
   ) { }
 
   ngOnInit() {
-    this.productService.getProducts()
+    this.productService.getProduct()
     .subscribe((res: any[]) => {
-      this.products = [...res];
+      this.demo = [...res];
       this.filteredProducts = res;
     });
 
@@ -37,15 +37,15 @@ export class TeachersComponent implements OnInit{
     if (val) {
       val = val.toLowerCase();
     } else {
-      return this.filteredProducts = [...this.products];
+      return this.filteredProducts = [...this.demo];
     }
 
-    const columns = Object.keys(this.products[0]);
+    const columns = Object.keys(this.demo[0]);
     if (!columns.length) {
       return;
     }
 
-    const rows = this.products.filter(function(d) {
+    const rows = this.demo.filter(function(d) {
       for (let i = 0; i <= columns.length; i++) {
         const column = columns[i];
         // console.log(d[column]);
